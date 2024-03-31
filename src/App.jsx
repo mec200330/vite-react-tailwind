@@ -65,7 +65,7 @@ const App = () => {
 
   const [filter, setFilter] = useState("all");
 
-  const changefilter = (filter) => setFilter(filter)
+  const changefilter = (filter) => setFilter(filter);
 
   const filterTodos = () => {
     switch (filter) {
@@ -81,7 +81,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat  bg-contain">
+    <div className="min-h-screen  bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat  bg-contain dark:bg-gray-950 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')]">
       <Header />
 
       <main className="container mx-auto px-4 mt-8">
@@ -98,11 +98,12 @@ const App = () => {
           clearCompleted={clearCompleted}
         />
 
-        <TodoFilter changefilter={changefilter}/>
+        <TodoFilter changefilter={changefilter} />
       </main>
 
-      <footer className="text-center mt-8">
+      <footer className="text-center mt-8 dark:text-gray-400">
         Drag and drop to reorder list
+        <p>cgomezdev</p>
       </footer>
     </div>
   );
