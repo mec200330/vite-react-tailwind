@@ -33,16 +33,14 @@ import { useEffect, useState } from "react";
   },
 ];*/
 
-const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || []
+const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || [];
 
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
 
-useEffect(() =>{
-  localStorage.setItem("todos", JSON.stringify(todos))
-}, [todos])
-
-
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const createTodo = (title) => {
     const newTodo = {
@@ -89,10 +87,10 @@ useEffect(() =>{
   };
 
   return (
-    <div className="min-h-screen  bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat  bg-contain dark:bg-gray-950 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')]">
+    <div className="min-h-screen  bg-gray-200 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat  bg-contain dark:bg-gray-950 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] md:bg-[url('./assets/images/bg-desktop-light.jpg')]  md:dark:bg-[url('./assets/images/bg-desktop-dark.jpg')] ">
       <Header />
 
-      <main className="container mx-auto px-4 mt-8">
+      <main className="container mx-auto px-4 mt-8 md:max-w-xl">
         <TodoCreate createTodo={createTodo} />
 
         <TodoList
