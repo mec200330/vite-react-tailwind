@@ -3,9 +3,9 @@ import TodoComputed from "./components/TodoComputed";
 import TodoCreate from "./components/TodoCreate";
 import TodoFilter from "./components/TodoFilter";
 import TodoList from "./components/TodoList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const initialStateTodos = [
+/*const initialStateTodos = [
   {
     id: 1,
     title: "Go to the Gym",
@@ -31,10 +31,18 @@ const initialStateTodos = [
     title: "Sleep",
     completed: false,
   },
-];
+];*/
+
+const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || []
 
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
+
+useEffect(() =>{
+  localStorage.setItem("todos", JSON.stringify(todos))
+}, [todos])
+
+
 
   const createTodo = (title) => {
     const newTodo = {
